@@ -10,7 +10,7 @@ LIST_OF_REQUIREMENTS = []
 
 setup (
     name = SRC_REPO,
-    version= "0.0.1",
+    version= "0.0.2",
     author= AUTHOR_USER_NAME,
     description= "MLOps workflow Cancer prediction",
     long_description= long_description,
