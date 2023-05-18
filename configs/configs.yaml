@@ -4,6 +4,7 @@ ARTIFACTS:
   TRAIN_LOADER_BIN : train_data.bin
   TEST_LOADER_BIN: test_data.bin
   SCALER_BIN: standard_scaler.pkl
+  MODEL: model.pkl
 
 
 SOURCE_DATA_DIRS:
@@ -15,6 +16,7 @@ PARAMS:
   COLS_TO_DROP : ["radius_mean",'perimeter_mean','area_mean','radius_worst', 
     'perimeter_worst','concave points_mean','concavity_mean', 
     'texture_worst','perimeter_se','radius_se']
+  RANDOM_SEED: 23
 
 
 
