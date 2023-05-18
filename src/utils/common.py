@@ -13,7 +13,7 @@ def read_csv(path):
 def read_yaml(path):
     with open(path,"r") as yaml_file:
         content = yaml.safe_load(yaml_file)
-        print(content)
+        #print(content)
     return content
 
 def creat_dir(path_to_dir:list)->None:
