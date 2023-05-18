@@ -1,6 +1,6 @@
 
 ARTIFACTS:
-  ARTIFACTS_PATH: artifacts
+  ARTIFACTS_PATH: artifacts_2
   TRAIN_LOADER_BIN : train_data.bin
   TEST_LOADER_BIN: test_data.bin
   SCALER_BIN: standard_scaler.pkl
