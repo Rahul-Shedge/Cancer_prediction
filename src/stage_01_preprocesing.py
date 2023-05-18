@@ -2,12 +2,15 @@ import pandas as pd
 import yaml
 import os
 import argparse
+import mlflow
 import logging
 from src.utils.common import read_csv,read_yaml,creat_dir
 from sklearn.preprocessing import StandardScaler
 from src.utils.model_utils import save_binary
 from sklearn.model_selection import train_test_split
 
+
+# mlflow.set_tracking_uri("http://127.0.0.1:5000")
 
 creat_dir(["logs"])
 STAGE="PREPROCESSING"

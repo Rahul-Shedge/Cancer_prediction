@@ -2,6 +2,7 @@ import pandas
 import argparse
 import os
 import logging
+import mlflow
 from src.utils.common import read_yaml
 from src.utils.model_utils import load_binary
 from sklearn.metrics import roc_auc_score,accuracy_score,f1_score
@@ -46,6 +47,12 @@ def main(config_path):
         Testing f1 score : {f1}
 
         ''')
+
+        mlflow.log_metric("Training_accuracy", acc)
+        mlflow.log_metric("Training_roc_auc_score", f1)
+        mlflow.log_metric("Training_f1_score", roc)
+
+
         return 
 
     except Exception as e:

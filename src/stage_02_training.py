@@ -1,5 +1,6 @@
 import os
 import argparse
+import mlflow
 import logging
 import pandas as pd
 from sklearn.ensemble import RandomForestClassifier
@@ -7,7 +8,8 @@ from src.utils.common import read_yaml,creat_dir
 from src.utils.model_utils import load_binary,save_binary
 from sklearn.metrics import accuracy_score,f1_score,roc_auc_score
 
-
+mlflow.set_tracking_uri("http://127.0.0.1:5000")
+# exp_id = mlflow.set_experiment('case-study-one')
 
 STAGE = "TRAINING"
 
@@ -26,9 +28,15 @@ def training(X,y,configs):
         clf = RandomForestClassifier(random_state=configs["PARAMS"]["RANDOM_SEED"])
         clf.fit(X,y)
         ypred = clf.predict(X)
+        mlflow.log_param("Seed",configs["PARAMS"]["RANDOM_SEED"])
+
         acc = accuracy_score(y,ypred)
         roc = roc_auc_score(y,ypred)
         f1 = f1_score(y, ypred)
+
+
+
+        
         logging.info("Training completed.")
         return acc,roc,f1,clf
     except Exception as e:
@@ -55,6 +63,7 @@ def main(config_path):
 
     X_train = train.drop("diagnosis",axis=1)
     y_train = train.diagnosis
+    #with mlflow.start_run(run_name="Training",experiment_id=exp_id.experiment_id):
 
     training_acc , training_roc ,training_f1 , clf = training(X_train,y_train,configs)
 
@@ -65,9 +74,14 @@ def main(config_path):
 
     ''')
 
+    mlflow.log_metric("Training_accuracy", training_acc)
+    mlflow.log_metric("Training_roc_auc_score", training_roc)
+    mlflow.log_metric("Training_f1_score", training_f1)
+
     model_path = os.path.join(ARTIFACTS_PATH,MODEL)
 
     save_binary(clf, model_path)
+    mlflow.sklearn.log_model(clf, "model")
 
 
 
