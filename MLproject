@@ -1,0 +1,23 @@
+
+name : mlflow-sklearn-multistage
+
+conda_env: conda.yaml
+
+entry_points:
+    main:
+        command: "python src/main.py"
+
+    prep:
+        parameters:
+            config: {type: str, default: configs/configs.yaml}
+        command: "python src/stage_01_preprocesing.py --config={config}"
+
+    train:
+        parameters:
+            config: {type: str, default: configs/configs.yaml}
+        command: "python src/stage_02_training.py --config={config}"
+
+    test:
+        parameters:
+            config: {type: str, default: configs/configs.yaml}
+        command: "python src/stage_03_testing.py --config={config}"
