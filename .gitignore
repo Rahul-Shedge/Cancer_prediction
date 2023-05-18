@@ -3,6 +3,8 @@ env
 logs
 research/.ipynb_checkpoints
 
+mlruns
+mlartifacts
 
 
 *.bin
