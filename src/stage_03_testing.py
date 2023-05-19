@@ -48,9 +48,9 @@ def main(config_path):
 
         ''')
 
-        mlflow.log_metric("Training_accuracy", acc)
-        mlflow.log_metric("Training_roc_auc_score", f1)
-        mlflow.log_metric("Training_f1_score", roc)
+        mlflow.log_metric("Testing_accuracy", acc)
+        mlflow.log_metric("Testing_roc_auc_score", f1)
+        mlflow.log_metric("Testing_f1_score", roc)
 
 
         return 

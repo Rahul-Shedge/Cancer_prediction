@@ -8,7 +8,7 @@ from src.utils.common import read_yaml,creat_dir
 from src.utils.model_utils import load_binary,save_binary
 from sklearn.metrics import accuracy_score,f1_score,roc_auc_score
 
-mlflow.set_tracking_uri("http://127.0.0.1:5000")
+# mlflow.set_tracking_uri("http://127.0.0.1:5000")
 # exp_id = mlflow.set_experiment('case-study-one')
 
 STAGE = "TRAINING"
@@ -78,10 +78,16 @@ def main(config_path):
     mlflow.log_metric("Training_roc_auc_score", training_roc)
     mlflow.log_metric("Training_f1_score", training_f1)
 
+
+    scaler_path = os.path.join(ARTIFACTS_PATH,ARTIFACTS["SCALER_BIN"])
+    # load_binary(scaler_path)
+    mlflow.log_artifact(scaler_path)
+
     model_path = os.path.join(ARTIFACTS_PATH,MODEL)
 
+
     save_binary(clf, model_path)
-    mlflow.sklearn.log_model(clf, "model")
+    mlflow.sklearn.log_model(clf, "model",registered_model_name="RFmodel")
 
 
 

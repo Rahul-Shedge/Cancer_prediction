@@ -10,7 +10,7 @@ from src.utils.model_utils import save_binary
 from sklearn.model_selection import train_test_split
 
 
-# mlflow.set_tracking_uri("http://127.0.0.1:5000")
+
 
 creat_dir(["logs"])
 STAGE="PREPROCESSING"
@@ -64,6 +64,7 @@ def main(config_path):
         creat_dir([artifacts_path])
         scaler_path = os.path.join(artifacts_path,ARTIFACTS["SCALER_BIN"])
         save_binary(sc1, scaler_path)
+        # mlflow.log_artifact(scaler_path)
         
         train_path = os.path.join(artifacts_path,ARTIFACTS["TRAIN_LOADER_BIN"])
         test_path = os.path.join(artifacts_path,ARTIFACTS["TEST_LOADER_BIN"])
