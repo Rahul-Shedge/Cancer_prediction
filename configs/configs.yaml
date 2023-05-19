@@ -16,7 +16,7 @@ PARAMS:
   COLS_TO_DROP : ["radius_mean",'perimeter_mean','area_mean','radius_worst', 
     'perimeter_worst','concave points_mean','concavity_mean', 
     'texture_worst','perimeter_se','radius_se']
-  RANDOM_SEED: 23
+  RANDOM_SEED: 29
 
 
 
