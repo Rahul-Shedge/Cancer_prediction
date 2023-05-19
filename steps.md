@@ -130,7 +130,7 @@ Create **MLProject**
 
 add all the 
 
-![screenshot](screenshot\Screenshot_2023-05-20_002416.png)
+![screenshot](/screenshot/Screenshot_2023-05-20_002416.png)
 
 
 from CLI:
@@ -167,7 +167,7 @@ Folders will gets created.
 
 Make sure you set Tracking uri in **System variables**:
 
-![screenshot](screenshot\Screenshot_2023-05-20_002743.png)
+![screenshot](/screenshot/Screenshot_2023-05-20_002743.png)
 
 With sqlite db:
 
@@ -200,7 +200,7 @@ Now we can do prediction :
 
   **SEE BELOW :**
 
-![screenshot](screenshot\Screenshot_2023-05-20003745.png)
+![screenshot](/screenshot/Screenshot_2023-05-20003745.png)
 
 
 **DATA INPUT FORMAT BELOW :** JSON
