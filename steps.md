@@ -58,8 +58,12 @@ pip install -e .
 Now add mlflow code to source code 
 
 
--------------------------------->To run file by file we need to below lines:<----------------------------------------
+------------------------------------------------
+                                  MLFLOW  METHOD 1
 
+------------------------------------------------
+
+add below line in the code. 
 ```
 mlflow.set_tracking_uri("http://127.0.0.1:5000")
 exp_id = mlflow.set_experiment('case-study-one')
